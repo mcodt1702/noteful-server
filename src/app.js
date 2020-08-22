@@ -12,11 +12,11 @@ const morganOption = NODE_ENV === "production" ? "tiny" : "common";
 app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());
-app.use("/api/notes", NotesRouter);
+app.use("/notes", NotesRouter);
 app.get("/", (req, res) => {
   res.send("Hello, boilerplate!");
 });
-app.use("./api/folders", FoldersRouter);
+app.use("/folders", FoldersRouter);
 app.use(function errorHandler(error, req, res, next) {
   let response;
   if (NODE_ENV === "production") {
