@@ -19,8 +19,8 @@ const FoldersService = {
     return knex.from("folders").select("*").where("folder_id", id).first();
   },
 
-  deleteFolder(knex, id) {
-    return knex("folders").where({ id }).delete();
+  deleteFolder(knex, folder_id) {
+    return knex("folders").where({ folder_id }).delete();
   },
 };
 module.exports = FoldersService;

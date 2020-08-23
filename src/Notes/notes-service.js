@@ -19,8 +19,8 @@ const NoteService = {
     return knex.from("notes").select("*").where("note_id", id).first();
   },
 
-  deleteNote(knex, id) {
-    return knex("notes").where({ id }).delete();
+  deleteNote(knex, note_id) {
+    return knex("notes").where({ note_id }).delete();
   },
 
   updateNote(knex, id, noteToUpdate) {

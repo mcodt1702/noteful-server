@@ -41,13 +41,7 @@ NotesRouter.route("/")
       })
       .catch(next);
   })
-  .delete((req, res, next) => {
-    NotesService.deleteNote(req.app.get("db"), req.params.note_id)
-      .then(() => {
-        res.status(204).end();
-      })
-      .catch(next);
-  })
+
   .patch(jsonParser, (req, res, next) => {
     const { name, modified, folder_id, content } = req.body;
     const noteToUpdate = { name, modified, folder_id, content };
@@ -83,6 +77,14 @@ NotesRouter.route("/:note_id")
   })
   .get((req, res, next) => {
     res.json(serializeNote(res.note));
+  })
+
+  .delete((req, res, next) => {
+    NotesService.deleteNote(req.app.get("db"), req.params.note_id)
+      .then(() => {
+        res.status(204).end();
+      })
+      .catch(next);
   });
 
 module.exports = NotesRouter;
