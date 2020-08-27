@@ -2,7 +2,7 @@ INSERT INTO folders
     (folder_id, name)
 VALUES
     (
-        '1',
+        '4',
         'Important'
     ),
     (
